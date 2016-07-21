@@ -2,6 +2,8 @@ package com.dsk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+
 /**
  * Spring Boot启动类;
  *
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@ServletComponentScan
 public class App {
 
     public static void main(String[] args) {
