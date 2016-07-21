@@ -1,11 +1,8 @@
 package com.dsk.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dsk.bean.DemoInfo;
 import com.dsk.map.Post;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
