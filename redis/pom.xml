@@ -35,6 +35,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+
         <!-- spring boot web支持：mvc,aop... -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
