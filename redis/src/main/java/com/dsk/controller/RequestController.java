@@ -21,6 +21,7 @@ public class RequestController {
 
     /**
      * 通过@PathVariabl获取路径中的参数(http://127.0.0.1:8080/user/1/dingshoukun)
+     *
      * @param id
      * @param name
      * @return
@@ -29,18 +30,18 @@ public class RequestController {
     @RequestMapping(value = "user/{id}/{name}", method = RequestMethod.GET)
     public String printMessage1(@PathVariable String id, @PathVariable String name) {
         Map data = new HashMap();
-        data.put("id",id);
-        data.put("name",name);
+        data.put("id", id);
+        data.put("name", name);
         return JSONObject.toJSONString(data);
     }
 
     /**
-     * @ModelAttribute获取POST请求的FORM表单数据(http://127.0.0.1:8080/modelattribute)[没有理解]
      * @param post
      * @return
+     * @ModelAttribute获取POST请求的FORM表单数据(http://127.0.0.1:8080/modelattribute)[没有理解]
      */
     @ResponseBody
-    @RequestMapping(value="modelattribute",method = RequestMethod.POST)
+    @RequestMapping(value = "modelattribute", method = RequestMethod.POST)
     public String processSubmit(@ModelAttribute("post") Post post) {
 
         return JSONObject.toJSONString(post);
@@ -48,6 +49,7 @@ public class RequestController {
 
     /**
      * 直接用HttpServletRequest获取get和post参数(curl http://127.0.0.1:8080/get\?get\=get --data "post=post")
+     *
      * @param request
      * @param response
      * @return
@@ -56,13 +58,14 @@ public class RequestController {
     @RequestMapping
     public String get(HttpServletRequest request, HttpServletResponse response) {
         Map data = new HashMap();
-        data.put("get",request.getParameter("get"));
-        data.put("post",request.getParameter("post"));
+        data.put("get", request.getParameter("get"));
+        data.put("post", request.getParameter("post"));
         return JSONObject.toJSONString(data);
     }
 
     /**
-     *用注解@RequestParam绑定请求参数
+     * 用注解@RequestParam绑定请求参数
+     *
      * @param a
      * @return
      */
@@ -70,5 +73,18 @@ public class RequestController {
     @RequestMapping(value = "/requestParam", method = RequestMethod.GET)
     public String setupForm(@RequestParam("a") String a) {
         return JSONObject.toJSONString(a);
+    }
+
+    /**
+     * 用注解@RequestParam绑定请求参数
+     * 输出请求的url
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/url", method = RequestMethod.GET)
+    public String url(HttpServletRequest request) {
+        Map data = new HashMap();
+        data.put("url",request.getRequestURI());
+        return JSONObject.toJSONString(data);
     }
 }
