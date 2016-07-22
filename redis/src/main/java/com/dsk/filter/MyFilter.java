@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 使用注解标注过滤器
@@ -33,7 +34,9 @@ public class MyFilter implements Filter {
                          FilterChain chain) throws IOException, ServletException {
         System.out.println(request.getRemoteAddr());
         HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
         System.out.println(req.getRequestURI());
+        res.setHeader("c","c");
         System.out.println("执行过滤操作");
         chain.doFilter(request, response);
     }
