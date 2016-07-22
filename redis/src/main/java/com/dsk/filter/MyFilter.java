@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,6 +38,7 @@ public class MyFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         System.out.println(req.getRequestURI());
         res.setHeader("c","c");
+        res.addCookie(new Cookie("foo", "bar"));
         System.out.println("执行过滤操作");
         chain.doFilter(request, response);
     }
