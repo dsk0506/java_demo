@@ -2,10 +2,8 @@ package com.dsk.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dsk.bean.primary.User;
-import com.dsk.config.RedisConfig;
 import com.dsk.repository.primary.UserRepository;
 import com.dsk.repository.secondary.MessageRepository;
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

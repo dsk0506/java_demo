@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisBConfig {
 
 
-    @Bean
+    @Bean(name="Redis")
     public JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
         jedisConnectionFactory.setHostName("127.0.0.1");
@@ -22,7 +22,7 @@ public class RedisBConfig {
         return jedisConnectionFactory;
     }
 
-    @Bean
+    @Bean(name="RedisTemplateB")
     public RedisTemplate<String, String> redisTemplate() {
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());

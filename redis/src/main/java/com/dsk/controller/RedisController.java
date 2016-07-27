@@ -2,9 +2,8 @@ package com.dsk.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dsk.config.RedisBConfig;
-import com.dsk.config.RedisConfig;
+import com.dsk.config.RedisAConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +21,7 @@ import java.util.Map;
 public class RedisController {
 
     @Autowired
-    private RedisConfig redisAConfig;
+    private RedisAConfig redisAConfig;
 
     @Autowired
     private RedisBConfig redisBConfig;
