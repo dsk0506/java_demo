@@ -5,13 +5,13 @@ import com.dsk.bean.primary.User;
 import com.dsk.repository.primary.UserRepository;
 import com.dsk.repository.secondary.MessageRepository;
 import com.dsk.service.UserService;
-import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,7 +52,7 @@ public class DatabaseController {
     @RequestMapping("/servicelist")
     @ResponseBody
     public String servicelist(){
-        User data =  UserService.findById(1);
+        List data =  UserService.findAll();
         return JSONObject.toJSONString(data);
     }
 }
