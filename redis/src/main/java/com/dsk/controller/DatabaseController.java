@@ -2,6 +2,7 @@ package com.dsk.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dsk.bean.primary.User;
+import com.dsk.mapper.UserMapper;
 import com.dsk.repository.primary.UserRepository;
 import com.dsk.repository.secondary.MessageRepository;
 import com.dsk.service.UserService;
@@ -54,6 +55,18 @@ public class DatabaseController {
     public String servicelist(){
         List data =  UserService.findAll();
         return JSONObject.toJSONString(data);
+    }
+
+    @Autowired
+    private UserMapper userMapper;
+    @RequestMapping("/usermapper")
+    @ResponseBody
+    public String usermapper(){
+        User user = new User();
+        user.setAge(11);
+        user.setName("Dhananjaypur");
+        userMapper.insertUser(user);
+        return "ok";
     }
 }
 
