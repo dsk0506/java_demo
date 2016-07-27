@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.dsk.bean.primary.User;
 import com.dsk.repository.primary.UserRepository;
 import com.dsk.repository.secondary.MessageRepository;
+import com.dsk.service.UserService;
+import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,8 @@ public class DatabaseController {
     private UserRepository userRepository;
     @Autowired
     private MessageRepository messageRepository;
-
+    @Autowired
+    private UserService UserService;
 
     @RequestMapping("/database")
     @ResponseBody
@@ -37,6 +40,20 @@ public class DatabaseController {
         data.put("size",size);
         return JSONObject.toJSONString(data);
 
+    }
+
+    @RequestMapping("/service")
+    @ResponseBody
+    public String service(){
+        User data =  UserService.findById(1);
+        return JSONObject.toJSONString(data);
+    }
+
+    @RequestMapping("/servicelist")
+    @ResponseBody
+    public String servicelist(){
+        User data =  UserService.findById(1);
+        return JSONObject.toJSONString(data);
     }
 }
 
