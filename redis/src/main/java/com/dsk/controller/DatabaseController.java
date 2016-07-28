@@ -87,6 +87,13 @@ public class DatabaseController {
         return id;
 
     }
+
+    @RequestMapping("/getUserByIdJoinBlog")
+    @ResponseBody
+    public String getUserByIdJoinBlog(){
+        List user = userMapper.getUserByIdJoinBlog(1);
+        return JSONObject.toJSONString(user);
+    }
 }
 
 

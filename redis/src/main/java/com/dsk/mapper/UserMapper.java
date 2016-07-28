@@ -4,6 +4,7 @@ import com.dsk.bean.primary.User;
 import org.apache.ibatis.mapping.StatementType;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dsk on 16/7/28.
@@ -31,4 +32,7 @@ public interface UserMapper {
 
     @Select("select * from user")
     public List<User> getAllUsers();
+
+    @Select("select * from user  left join blog on blog.uid=user.id where user.id=#{id}")
+    public List<Map> getUserByIdJoinBlog(int id);
 }
