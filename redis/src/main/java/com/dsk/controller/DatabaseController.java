@@ -78,14 +78,13 @@ public class DatabaseController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(){
+    public Long add(){
         User user = new User();
         user.setName("dingding");
         user.setAge(32);
         userMapper.add(user);
-        System.out.println(user.getId());
-        return "ok";
-
+        Long id = user.getId();
+        return id;
 
     }
 }

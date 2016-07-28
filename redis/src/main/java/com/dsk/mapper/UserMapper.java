@@ -1,9 +1,7 @@
 package com.dsk.mapper;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.*;
 import com.dsk.bean.primary.User;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.mapping.StatementType;
 
 import java.util.List;
 
@@ -18,7 +16,8 @@ public interface UserMapper {
     @Select("select * from user where id= #{id}")
     public User getUserByID(int id);
 
-    @Insert("insert into user(name, age) values(#{name}, #{age})")
+    @Insert("insert into user(id,name, age) values(null,#{name}, #{age})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     public int add(User user);
 
     @Delete("delete from user where id = #{id}")
