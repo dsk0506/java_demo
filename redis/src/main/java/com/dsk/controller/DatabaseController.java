@@ -59,14 +59,34 @@ public class DatabaseController {
 
     @Autowired
     private UserMapper userMapper;
-    @RequestMapping("/usermapper")
+    @RequestMapping("/insertUser")
     @ResponseBody
-    public String usermapper(){
+    public String insertUser(){
         User user = new User();
         user.setAge(11);
         user.setName("Dhananjaypur");
         userMapper.insertUser(user);
         return "ok";
+    }
+
+    @RequestMapping("/getUserByID")
+    @ResponseBody
+    public String getUserByID(){
+        User user = userMapper.getUserByID(1);
+        return JSONObject.toJSONString(user);
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(){
+        User user = new User();
+        user.setName("dingding");
+        user.setAge(32);
+        userMapper.add(user);
+        System.out.println(user.getId());
+        return "ok";
+
+
     }
 }
 
