@@ -1,1 +1,2 @@
 .idea
+config-server/target/classes/application.properties
